@@ -4,8 +4,8 @@
              xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="ImageButtonDemo.Views.MainPage"
-             Title="MainPage">
+             Title="Image Button Demo">
   <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
-    <Label Text="{Binding Title}" />
+        <Label Text="Image Button Demo" />
   </StackLayout>
 </ContentPage>
