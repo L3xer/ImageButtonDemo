@@ -36,6 +36,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Controls\ImageButton.cs" />
+    <Compile Include="MarkupExtensions\ImageResource.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\MainPageViewModel.cs" />
   </ItemGroup>
