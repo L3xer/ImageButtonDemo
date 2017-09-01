@@ -2,10 +2,30 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             xmlns:me="clr-namespace:ImageButtonDemo.MarkupExtensions;assembly=ImageButtonDemo"
+             xmlns:controls="clr-namespace:ImageButtonDemo.Controls;assembly=ImageButtonDemo"
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="ImageButtonDemo.Views.MainPage"
              Title="Image Button Demo">
-  <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
-        <Label Text="Image Button Demo" />
-  </StackLayout>
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="ImageButtonStyle" TargetType="controls:ImageButton">
+                <Setter Property="WidthRequest" Value="40" />
+                <Setter Property="HeightRequest" Value="40" />
+                <Setter Property="HorizontalOptions" Value="End" />
+                <Setter Property="VerticalOptions" Value="CenterAndExpand" />
+            </Style>
+            <Style x:Key="PhoneEntryStyle" TargetType="Entry">
+                <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+                <Setter Property="VerticalOptions" Value="CenterAndExpand" />
+                <Setter Property="Keyboard" Value="Telephone" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="Start" Padding="10">
+        <Entry Text="{Binding PhoneNumber}" Placeholder="Phone number" Style="{StaticResource PhoneEntryStyle}"/>
+        <controls:ImageButton Source="{me:ImageResource ImageButtonDemo.Images.ic_phone.png}" Style="{StaticResource ImageButtonStyle}" IsDisabled="{Binding IsPhoneButtonDisabled}"/>
+    </StackLayout>
 </ContentPage>

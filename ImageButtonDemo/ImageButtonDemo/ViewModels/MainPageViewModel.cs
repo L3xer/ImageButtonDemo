@@ -1,17 +1,21 @@
-﻿using Prism.Commands;
-using Prism.Mvvm;
-using Prism.Navigation;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using Prism.Mvvm;
 
 namespace ImageButtonDemo.ViewModels
 {
     public class MainPageViewModel : BindableBase
     {
-        public MainPageViewModel()
+        private string _phoneNumber;
+        public string PhoneNumber
         {
+            get { return _phoneNumber; }
+            set
+            {
+                SetProperty(ref _phoneNumber, value);
 
+                RaisePropertyChanged(nameof(IsPhoneButtonDisabled));
+            }
         }
+
+        public bool IsPhoneButtonDisabled => string.IsNullOrWhiteSpace(_phoneNumber);
     }
 }
